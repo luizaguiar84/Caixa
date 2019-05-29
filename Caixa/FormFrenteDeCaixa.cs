@@ -11,15 +11,17 @@ using ClassLibrary;
 
 namespace Caixa
 {
-	public partial class Form1 : Form
+	public partial class FormFrenteDeCaixa : Form
 	{
 
 		public double CodProduto;
 		public double QtdProduto;
 		public double PrecoProd;
-		// public double Total;
+		public double Total;
+		public double SubTotal { get; set; }
 
-
+		Totalizacao totalizacao = new Totalizacao();
+		ClassLibrary.Operacoes operacoes = new ClassLibrary.Operacoes();
 
 
 		private void MudarNoEnter(object sender, KeyPressEventArgs e)
@@ -31,7 +33,7 @@ namespace Caixa
 			}
 		}
 
-		public Form1()
+		public FormFrenteDeCaixa()
 		{
 			InitializeComponent();
 		}
@@ -91,13 +93,26 @@ namespace Caixa
 			{
 
 				PrecoProd = double.Parse(Valor_box.Text);
-
-
 				this.ProcessTabKey(true);
-
 				e.Handled = true;
 
-				SubTotal_box.Text = ClassLibrary.Total.ToString("F2");
+				double subtotal = operacoes.Cobrar(QtdProduto, PrecoProd);
+
+				SubTotal += subtotal;
+				Total += subtotal;
+
+				CodProduto_box.Focus();
+				//"C" no tostring de currency
+				
+				SubTotal_box.Text = SubTotal.ToString("C");
+
+				Valor_box.Text = "";
+				CodProduto_box.Text = "";
+				Quantidade_box.Text = "";
+				Avisos_box.Text += "Codigo: " + CodProduto +
+									" Quantidade: " + QtdProduto +
+									" Valor Unitário: " + PrecoProd.ToString("C") +
+									" TOTAL= " + (QtdProduto*PrecoProd).ToString("C") + "\n\n";
 
 
 			}
@@ -105,7 +120,7 @@ namespace Caixa
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-			Cobrar(QtdProduto, PrecoProd);
+			//Cobrar(QtdProduto, PrecoProd);
 
 			
 		}
@@ -117,7 +132,7 @@ namespace Caixa
 
 		private void Avisos_box_TextChanged(object sender, EventArgs e)
 		{
-
+			
 		}
 
 		private void Form1_KeyPress(object sender, KeyPressEventArgs e)
@@ -125,7 +140,7 @@ namespace Caixa
 			if (e.KeyChar == 116)
 				{
 
-				Total_box.Text = Total.ToString("F2");
+				//Total_box.Text = Total.ToString("F2");
 
 
 				}
@@ -133,15 +148,38 @@ namespace Caixa
 
 				PrecoProd = double.Parse(Valor_box.Text);
 
-				Cobrar(QtdProduto, PrecoProd);
+				//Cobrar(QtdProduto, PrecoProd);
 
 				this.ProcessTabKey(true);
 				e.Handled = true;
 
-				SubTotal_box.Text = Total.ToString("F2");
+				//SubTotal_box.Text = Total.ToString("F2");
 
 
 			}
+		}
+
+		private void btnFinalizar_Click(object sender, EventArgs e)
+		{
+			txtTotal.Text = Total.ToString("C");
+
+		}
+
+		private void brnNovaVenda_Click(object sender, EventArgs e)
+		{
+			FormFormasDePagamento formFormasDePagamento = new FormFormasDePagamento();
+			formFormasDePagamento.Show();
+			formFormasDePagamento.lbl_FormaDePagamento.Text = "Valor Total: " + Total.ToString("C");
+			Valor_box.Text = "";
+			CodProduto_box.Text = "";
+			Quantidade_box.Text = "";
+			txtTotal.Text = "";
+			SubTotal_box.Text = "";
+			Avisos_box.Text = "";
+			Total = 0;
+			SubTotal = 0;
+
+
 		}
 	}
 }

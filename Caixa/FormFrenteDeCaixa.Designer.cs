@@ -1,6 +1,6 @@
 ﻿namespace Caixa
 {
-	partial class Form1
+	partial class FormFrenteDeCaixa
 	{
 		/// <summary>
 		/// Variável de designer necessária.
@@ -39,8 +39,10 @@
 			this.valor_lbl = new System.Windows.Forms.Label();
 			this.subtotal_lbl = new System.Windows.Forms.Label();
 			this.SubTotal_box = new System.Windows.Forms.RichTextBox();
-			this.Total_box = new System.Windows.Forms.RichTextBox();
+			this.txtTotal = new System.Windows.Forms.RichTextBox();
 			this.label1 = new System.Windows.Forms.Label();
+			this.btnFinalizar = new System.Windows.Forms.Button();
+			this.brnNovaVenda = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.ImagemEstabelecimento_lbl)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -48,7 +50,7 @@
 			// 
 			this.NomeEstabelecimento_lbl.AutoSize = true;
 			this.NomeEstabelecimento_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.NomeEstabelecimento_lbl.Location = new System.Drawing.Point(205, 51);
+			this.NomeEstabelecimento_lbl.Location = new System.Drawing.Point(266, 48);
 			this.NomeEstabelecimento_lbl.Name = "NomeEstabelecimento_lbl";
 			this.NomeEstabelecimento_lbl.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
 			this.NomeEstabelecimento_lbl.Size = new System.Drawing.Size(618, 55);
@@ -67,10 +69,11 @@
 			// 
 			// Avisos_box
 			// 
+			this.Avisos_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Avisos_box.Location = new System.Drawing.Point(47, 148);
 			this.Avisos_box.Name = "Avisos_box";
 			this.Avisos_box.ReadOnly = true;
-			this.Avisos_box.Size = new System.Drawing.Size(420, 344);
+			this.Avisos_box.Size = new System.Drawing.Size(539, 344);
 			this.Avisos_box.TabIndex = 2;
 			this.Avisos_box.TabStop = false;
 			this.Avisos_box.Text = "";
@@ -79,7 +82,7 @@
 			// Codigo_lbl
 			// 
 			this.Codigo_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Codigo_lbl.Location = new System.Drawing.Point(500, 148);
+			this.Codigo_lbl.Location = new System.Drawing.Point(609, 148);
 			this.Codigo_lbl.Name = "Codigo_lbl";
 			this.Codigo_lbl.Size = new System.Drawing.Size(76, 24);
 			this.Codigo_lbl.TabIndex = 3;
@@ -89,7 +92,7 @@
 			// 
 			this.CodProduto_box.BackColor = System.Drawing.Color.White;
 			this.CodProduto_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.CodProduto_box.Location = new System.Drawing.Point(504, 175);
+			this.CodProduto_box.Location = new System.Drawing.Point(613, 175);
 			this.CodProduto_box.MaxLength = 3;
 			this.CodProduto_box.Multiline = false;
 			this.CodProduto_box.Name = "CodProduto_box";
@@ -104,7 +107,7 @@
 			// Quantidade_box
 			// 
 			this.Quantidade_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Quantidade_box.Location = new System.Drawing.Point(504, 238);
+			this.Quantidade_box.Location = new System.Drawing.Point(613, 238);
 			this.Quantidade_box.MaxLength = 5;
 			this.Quantidade_box.Multiline = false;
 			this.Quantidade_box.Name = "Quantidade_box";
@@ -117,7 +120,7 @@
 			// Valor_box
 			// 
 			this.Valor_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Valor_box.Location = new System.Drawing.Point(504, 301);
+			this.Valor_box.Location = new System.Drawing.Point(613, 301);
 			this.Valor_box.Multiline = false;
 			this.Valor_box.Name = "Valor_box";
 			this.Valor_box.Size = new System.Drawing.Size(397, 33);
@@ -130,7 +133,7 @@
 			// 
 			this.quantidade_lbl.AutoSize = true;
 			this.quantidade_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.quantidade_lbl.Location = new System.Drawing.Point(500, 211);
+			this.quantidade_lbl.Location = new System.Drawing.Point(609, 211);
 			this.quantidade_lbl.Name = "quantidade_lbl";
 			this.quantidade_lbl.Size = new System.Drawing.Size(108, 24);
 			this.quantidade_lbl.TabIndex = 7;
@@ -140,7 +143,7 @@
 			// 
 			this.valor_lbl.AutoSize = true;
 			this.valor_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.valor_lbl.Location = new System.Drawing.Point(500, 274);
+			this.valor_lbl.Location = new System.Drawing.Point(609, 274);
 			this.valor_lbl.Name = "valor_lbl";
 			this.valor_lbl.Size = new System.Drawing.Size(54, 24);
 			this.valor_lbl.TabIndex = 8;
@@ -150,7 +153,7 @@
 			// 
 			this.subtotal_lbl.AutoSize = true;
 			this.subtotal_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.subtotal_lbl.Location = new System.Drawing.Point(500, 337);
+			this.subtotal_lbl.Location = new System.Drawing.Point(609, 337);
 			this.subtotal_lbl.Name = "subtotal_lbl";
 			this.subtotal_lbl.Size = new System.Drawing.Size(77, 24);
 			this.subtotal_lbl.TabIndex = 10;
@@ -159,7 +162,7 @@
 			// SubTotal_box
 			// 
 			this.SubTotal_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.SubTotal_box.Location = new System.Drawing.Point(504, 364);
+			this.SubTotal_box.Location = new System.Drawing.Point(613, 364);
 			this.SubTotal_box.Multiline = false;
 			this.SubTotal_box.Name = "SubTotal_box";
 			this.SubTotal_box.ReadOnly = true;
@@ -168,35 +171,59 @@
 			this.SubTotal_box.Text = "";
 			this.SubTotal_box.TextChanged += new System.EventHandler(this.SubTotal_box_TextChanged);
 			// 
-			// Total_box
+			// txtTotal
 			// 
-			this.Total_box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.Total_box.Location = new System.Drawing.Point(504, 459);
-			this.Total_box.Multiline = false;
-			this.Total_box.Name = "Total_box";
-			this.Total_box.ReadOnly = true;
-			this.Total_box.Size = new System.Drawing.Size(397, 33);
-			this.Total_box.TabIndex = 12;
-			this.Total_box.Text = "";
+			this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.txtTotal.Location = new System.Drawing.Point(613, 459);
+			this.txtTotal.Multiline = false;
+			this.txtTotal.Name = "txtTotal";
+			this.txtTotal.ReadOnly = true;
+			this.txtTotal.Size = new System.Drawing.Size(397, 33);
+			this.txtTotal.TabIndex = 12;
+			this.txtTotal.Text = "";
 			// 
 			// label1
 			// 
 			this.label1.AutoSize = true;
 			this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.label1.Location = new System.Drawing.Point(500, 432);
+			this.label1.Location = new System.Drawing.Point(609, 432);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(72, 24);
 			this.label1.TabIndex = 13;
 			this.label1.Text = "TOTAL";
+			// 
+			// btnFinalizar
+			// 
+			this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.btnFinalizar.Location = new System.Drawing.Point(732, 413);
+			this.btnFinalizar.Name = "btnFinalizar";
+			this.btnFinalizar.Size = new System.Drawing.Size(75, 23);
+			this.btnFinalizar.TabIndex = 14;
+			this.btnFinalizar.Text = "Finalizar";
+			this.btnFinalizar.UseVisualStyleBackColor = true;
+			this.btnFinalizar.Click += new System.EventHandler(this.btnFinalizar_Click);
+			// 
+			// brnNovaVenda
+			// 
+			this.brnNovaVenda.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+			this.brnNovaVenda.Location = new System.Drawing.Point(830, 413);
+			this.brnNovaVenda.Name = "brnNovaVenda";
+			this.brnNovaVenda.Size = new System.Drawing.Size(75, 23);
+			this.brnNovaVenda.TabIndex = 15;
+			this.brnNovaVenda.Text = "Nova Venda";
+			this.brnNovaVenda.UseVisualStyleBackColor = true;
+			this.brnNovaVenda.Click += new System.EventHandler(this.brnNovaVenda_Click);
 			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.ClientSize = new System.Drawing.Size(968, 547);
+			this.ClientSize = new System.Drawing.Size(1097, 547);
+			this.Controls.Add(this.brnNovaVenda);
+			this.Controls.Add(this.btnFinalizar);
 			this.Controls.Add(this.label1);
-			this.Controls.Add(this.Total_box);
+			this.Controls.Add(this.txtTotal);
 			this.Controls.Add(this.SubTotal_box);
 			this.Controls.Add(this.subtotal_lbl);
 			this.Controls.Add(this.valor_lbl);
@@ -221,17 +248,19 @@
 
 		private System.Windows.Forms.Label NomeEstabelecimento_lbl;
 		private System.Windows.Forms.PictureBox ImagemEstabelecimento_lbl;
-		private System.Windows.Forms.RichTextBox Avisos_box;
 		private System.Windows.Forms.Label Codigo_lbl;
 		public System.Windows.Forms.RichTextBox CodProduto_box;
-		private System.Windows.Forms.RichTextBox Quantidade_box;
-		private System.Windows.Forms.RichTextBox Valor_box;
 		private System.Windows.Forms.Label quantidade_lbl;
 		private System.Windows.Forms.Label valor_lbl;
 		private System.Windows.Forms.Label subtotal_lbl;
-		private System.Windows.Forms.RichTextBox SubTotal_box;
-		private System.Windows.Forms.RichTextBox Total_box;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Button btnFinalizar;
+		private System.Windows.Forms.Button brnNovaVenda;
+		public System.Windows.Forms.RichTextBox Avisos_box;
+		public System.Windows.Forms.RichTextBox Quantidade_box;
+		public System.Windows.Forms.RichTextBox Valor_box;
+		public System.Windows.Forms.RichTextBox SubTotal_box;
+		public System.Windows.Forms.RichTextBox txtTotal;
 	}
 }
 

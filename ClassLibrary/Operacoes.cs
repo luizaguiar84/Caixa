@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary
 {
-	class Operacoes
+	public class Operacoes
 	{
-		public int Valor { get; set; }
-		public int MyProperty { get; set; }
-		public double Total { get; set; }
 
-		public void Cobrar(double qtd, double preco)
+
+		public double Cobrar(double quantidade, double preco)
 		{
 
-		Total = qtd * preco;
+		double Total = quantidade * preco;
+			return Total;
 
 		}
 	}
